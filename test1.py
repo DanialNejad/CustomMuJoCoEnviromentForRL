@@ -1,9 +1,9 @@
-from stable_baselines3 import SAC
-from ball_balance_env import BallBalanceEnv
+from stable_baselines3 import PPO
+from ball_balance_env1 import BallBalanceEnv
 import imageio
 
 env = BallBalanceEnv(render_mode="rgb_array")
-model = SAC.load("sac_ball_balance.zip")
+model = PPO.load("ppo_ball_balance.zip")
 
 obs, info = env.reset()
 frames = []
@@ -16,4 +16,4 @@ for _ in range(500):
     if done or truncated:
         obs, info = env.reset()
 
-imageio.mimsave('ball_balance1.gif', frames, fps=20)
+imageio.mimsave('ppo_ball_balance1.gif', frames, fps=20)
