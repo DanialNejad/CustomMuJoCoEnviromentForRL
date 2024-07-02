@@ -1,7 +1,8 @@
 import time
 import mujoco.viewer
-
-model = mujoco.MjModel.from_xml_path("assets/ball_balance.xml")
+# Kamal_final.xml
+# ball_balance.xml
+model = mujoco.MjModel.from_xml_path("/media/danial/8034D28D34D28596/Projects/CustomMuJoCoEnviromentForRL/assets/Kamal_final.xml")
 data = mujoco.MjData(model)
 n_steps = 5
 

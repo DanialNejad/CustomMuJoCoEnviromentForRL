@@ -1,6 +1,5 @@
 from stable_baselines3 import SAC
 from ball_balance_env import BallBalanceEnv
-import cv2
 import imageio
 
 env = BallBalanceEnv(render_mode="rgb_array")
@@ -14,12 +13,7 @@ for _ in range(500):
     image = env.render()
     if _ % 5 == 0:
         frames.append(image)
-    cv2.imshow("image", image)
-    cv2.waitKey(1)
     if done or truncated:
         obs, info = env.reset()
 
-# uncomment to save result as gif
-# with imageio.get_writer("media/test1.gif", mode="I") as writer:
-#     for idx, frame in enumerate(frames):
-#         writer.append_data(frame)
+imageio.mimsave('ball_balance1.gif', frames, fps=20)
